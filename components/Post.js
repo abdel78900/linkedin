@@ -15,6 +15,7 @@ import * as timeago from 'timeago.js';
 import fr from 'timeago.js/lib/lang/fr';
 import { useSession } from "next-auth/react";
 import Input from "./Input";
+import Comment from "./Comment";
 
 
 function Post({ post, modalPost }) {
@@ -27,10 +28,9 @@ function Post({ post, modalPost }) {
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [handlePost, setHandlePost] = useRecoilState(handlePostState);
   const liker = post.likers?.includes(session?.user?.email)
-console.log(post?.comments?.[0]?.inputComment)
   const truncate = (string, n) =>
     string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
-
+console.log(post)
   const deletePost = async () => {
     const response = await fetch(`/api/posts/${post._id}`, {
       method: "DELETE",
@@ -107,13 +107,23 @@ console.log(post?.comments?.[0]?.inputComment)
         <div className="px-4 break-all md:break-normal">
           {modalPost || showInput ? (
             <p onClick={() => setShowInput(false)}>{post.input}</p>
-          ) : (
-            <p onClick={() => setShowInput(true)}>
+            ) : (
+              <p onClick={() => setShowInput(true)}>
               {truncate(post.input, 150)}
             </p>
           )}
         </div>
       )}
+      <div className="flex items-center justify-between w-full px-4">
+        <div className='flex items-center space-x-1'>
+          {post?.likers?.length !== 0 && <ThumbUpOffAltRoundedIcon className="-scale-x-100 !h-5 !w-5 p-1 bg-blue-500 rounded-full text-white"/> }
+          <p className="flex  text-gray-500 text-xs ">{ post?.likers?.length !== 0 && post?.likers?.length}</p>  
+        </div>
+         
+      <p className="flex  text-gray-500 text-xs ">{ post.message && post?.message?.length + " commentaires"}</p>
+      </div>
+     
+      
 
       {post.photoUrl && !modalPost && (
         <img
@@ -128,7 +138,7 @@ console.log(post?.comments?.[0]?.inputComment)
         />
       )}
 
-      <div className="flex justify-evenly items-center dark:border-t border-gray-600/80 mx-2.5 pt-2 text-black/60 dark:text-white/75">
+      <div className="flex justify-evenly items-center border-t border-gray-500/20 dark:border-t  mx-2.5 pt-2 text-black/60 dark:text-white/75">
         {modalPost ? (
           <button className="postButton">
             <CommentOutlinedIcon />
@@ -174,24 +184,7 @@ console.log(post?.comments?.[0]?.inputComment)
       }
       <div>
         {post.message && post.message.reverse().map(com =>(
-          <div className="flex space-x-5 ">
-            
-          <img 
-          className="w-10 h-10 rounded-full ml-2 mt-3"
-          src={com.commenterImg} alt="" />
-          <div className="relative flex flex-col rounded-lg w-5/6 bg-gray-100 dark:bg-transparent dark:border dark:border-gray-500 p-2 m-2">
-           <p className='font-semibold' >{com.commenterPseudo}</p>
-           <p className='font-light text-sm text-gray-500'>{com.commenterId}</p>
-            <p className="mt-2">{com.inputComment}</p>
-          
-            <MoreHorizRoundedIcon className="dark:text-white/75 h-7 w-7 absolute top-1 right-3" />
-            <TimeAgo
-            datetime={com.createdAt}
-            locale='fr'
-            className="text-xs dark:text-white/75 opacity-80 absolute top-2 right-14"
-          />
-          </div>
-          </div>
+          <Comment post={post} com={com}/>
           
         ))}
       </div>
