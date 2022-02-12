@@ -117,10 +117,10 @@ console.log(post)
       <div className="flex items-center justify-between w-full px-4">
         <div className='flex items-center space-x-1'>
           {post?.likers?.length !== 0 && <ThumbUpOffAltRoundedIcon className="-scale-x-100 !h-5 !w-5 p-1 bg-blue-500 rounded-full text-white"/> }
-          <p className="flex  text-gray-500 text-xs ">{ post?.likers?.length !== 0 && post?.likers?.length}</p>  
+          <p className="flex  text-gray-500 text-xs dark:text-white ">{ post?.likers?.length !== 0 && post?.likers?.length}</p>  
         </div>
          
-      <p className="flex  text-gray-500 text-xs ">{ post.message && post?.message?.length + " commentaires"}</p>
+      <p className="flex  text-gray-500 text-xs dark:text-white">{ post.message && post?.message?.length + " commentaires"}</p>
       </div>
      
       
