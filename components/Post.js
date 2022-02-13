@@ -44,13 +44,13 @@ console.log(post)
     setModalOpen(false);
   };
 
-  const handleLike = async () => {
+  const handleLikePost = async () => {
     if (liker){
       const response = await fetch(`/api/posts/${post._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json",
         email: session?.user?.email,
-        test: "DELETELIKE",
+        test: "DELETELIKEPOST",
       },
       });
       setHandlePost(true);
@@ -60,7 +60,7 @@ console.log(post)
       method: "PUT",
       headers: { "Content-Type": "application/json",
       email: session?.user?.email,
-      test: "ADDLIKE",
+      test: "ADDLIKEPOST",
     },
     });
 
@@ -147,7 +147,7 @@ console.log(post)
         ) : (
           <button
             className={`postButton ${liker && "text-blue-500"}`}
-            onClick={handleLike}
+            onClick={handleLikePost}
           >
             {liker ? (
               <ThumbUpOffAltRoundedIcon className="-scale-x-100" />

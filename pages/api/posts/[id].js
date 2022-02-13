@@ -23,7 +23,21 @@ export default async function handler(req, res) {
       res.status(500).json(error);
     }
   }
-  if (request === "ADDLIKE") {
+  if (request === "ADDLIKEPOST") {
+    try {
+      await db.collection("posts").updateOne({ _id: new ObjectId(id)},
+      {$addToSet: {likers:email}},
+      
+        { new: true}
+      
+      ), 
+        
+      res.status(200).json({ message: "the post has been liked by ..." });
+    } catch (error) {
+      res.status(500).json("c'est une momunentale erreur");
+    }
+  }
+  if (request === "ADDLIKEMESSAGE") {
     try {
       await db.collection("posts").updateOne({ _id: new ObjectId(id)},
       {$addToSet: {likers:email}},
@@ -38,7 +52,7 @@ export default async function handler(req, res) {
     }
   }
  
-  if (request === "DELETELIKE") {
+  if (request === "DELETELIKEPOST") {
     try {
       await db.collection("posts").updateOne({ _id: new ObjectId(id)},
       { $pull: { likers: { $in : [email]}}},
