@@ -183,8 +183,8 @@ console.log(post)
         showCommentInput && <Input comment post={post} setShowCommentInput={setShowCommentInput}/>
       }
       <div>
-        {post.message && post.message.reverse().map(com =>(
-          <Comment post={post} com={com}/>
+        {post.message && post.message.reverse().map((com, index) =>(
+          <Comment post={post} com={com} key={index}/>
           
         ))}
       </div>
