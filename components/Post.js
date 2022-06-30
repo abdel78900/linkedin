@@ -155,7 +155,7 @@ console.log(post)
               <ThumbUpOffAltOutlinedIcon className="-scale-x-100" />
             )}
 
-            <h4>J'aime</h4>
+            <h4>J&aposaime</h4>
           </button>
         )}
         <button
