@@ -10,7 +10,7 @@
 
 @layer components {
   .intent {
-    @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-md mx-auto xl:mx-0;
+    @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-2xl mx-auto xl:mx-0;
   }
 
   .sidebarButton {

@@ -21,10 +21,10 @@ function Home({ providers }) {
         </div>
         <div className="flex items-center sm:divide-x divide-gray-300">
           <div className="hidden sm:flex space-x-8 pr-4">
-            <HeaderLink Icon={ExploreIcon} text="Discover" />
-            <HeaderLink Icon={GroupIcon} text="People" />
+            <HeaderLink Icon={ExploreIcon} text="Découvrir" />
+            <HeaderLink Icon={GroupIcon} text="Personnes" />
             <HeaderLink Icon={OndemandVideoSharpIcon} text="Learning" />
-            <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
+            <HeaderLink Icon={BusinessCenterIcon} text="offres d'emploi" />
           </div>
 
           {Object.values(providers).map((provider) => (
@@ -34,7 +34,7 @@ function Home({ providers }) {
                   className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
                   onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                 >
-                  Sign in
+                  S'identifier
                 </button>
               </div>
             </div>
@@ -42,22 +42,22 @@ function Home({ providers }) {
         </div>
       </header>
 
-      <main className="flex flex-col xl:flex-row items-center max-w-screen-lg mx-auto">
+      <main className="flex flex-col xl:flex-row items-center max-w-screen-lg mx-auto ">
         <div className="space-y-6 xl:space-y-10">
-          <h1 className="text-3xl md:text-5xl text-amber-800/80 max-w-xl !leading-snug pl-4 xl:pl-0">
-            Welcome to your professional community
+          <h1 className=" text-3xl  md:text-5xl text-amber-800/80 max-w-xl !leading-snug pl-4 xl:pl-0">
+          Bienvenue dans votre communauté professionnelle
           </h1>
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             <div className="intent">
-              <h2 className="text-xl">Search for a job</h2>
+              <h2 className="text-xl">Chercher un emploi</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
             <div className="intent">
-              <h2 className="text-xl">Find a person you know</h2>
+              <h2 className="text-xl">Trouver une personne que vous connaissez</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
             <div className="intent">
-              <h2 className="text-xl">Learn a new skill</h2>
+              <h2 className="text-xl">Apprendre une nouvelle compétence</h2>
               <ArrowForwardIosRoundedIcon className="text-gray-700" />
             </div>
           </div>
