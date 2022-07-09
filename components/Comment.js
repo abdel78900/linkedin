@@ -31,7 +31,7 @@ const Comment = ({post, com}) => {
           
           </div>
             <div className="flex space-x-2  divide-x-2 text-xs text-gray-400 font-semibold dark:text-white">
-            <p className="divide-x-2 ml-16 cursor-pointer">J'aime</p>
+            <p className="divide-x-2 ml-16 cursor-pointer">J aime</p>
             <p className="divide-x-2 pl-3 cursor-pointer">Répondre</p>  
             </div>
           </>
