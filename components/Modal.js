@@ -76,7 +76,7 @@ const Modal = ({ handleClose, type }) => {
             </IconButton>
           </div>
 
-          <div className="p-4 space-y-2 border-t">
+          <div className="p-4 space-y-2 border-t ">
             <div className="flex items-center space-x-2">
               <Avatar src={session?.user?.image} className="!h-11 !w-11" />
               <h6>{session?.user?.name}</h6>
