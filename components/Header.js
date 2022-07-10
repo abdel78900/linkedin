@@ -44,7 +44,7 @@ function Header() {
           <SearchRoundedIcon />
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Recherche"
             className="hidden md:inline-flex bg-transparent text-sm focus:outline-none placeholder-black/70 dark:placeholder-white/75 flex-grow"
           />
         </div>
